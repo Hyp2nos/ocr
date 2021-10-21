@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic OCR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img [src]="image" ></ion-img>
+  <ion-button expand="full" (click)="recognizeImage()"  [disabled]="!workerReady" > Reconnaitre </ion-button>
+
+  <ion-card *ngIf="workerReady && captureProgress > 0">
+  <ion-card-header>
+   <ion-card-title> 
+    Capture progress : {{ captureProgress }}%
+   </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   {{ ocrResult}}
+  </ion-card-content>
+  </ion-card>
+</ion-content>
